@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "feedbacks")
@@ -30,7 +31,7 @@ public class Feedback {
 
     private LocalDateTime sentTime;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "feedback", cascade = CascadeType.ALL, orphanRemoval = true)
     private Reply reply;
 
 }

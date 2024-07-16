@@ -24,8 +24,8 @@ public class Reply {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne
-    @JoinColumn(name = "feedback_id")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST) // veya CascadeType.ALL
+    @JoinColumn(name = "feedback_id", unique = true)
     private Feedback feedback;
 
     private String title;
@@ -33,4 +33,6 @@ public class Reply {
     private String content;
 
     private LocalDateTime sentTime;
+
+    private boolean transactionDone;
 }

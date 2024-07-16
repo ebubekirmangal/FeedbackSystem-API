@@ -19,5 +19,7 @@ public interface FeedbackMapper {
     @Mapping(target = "userId",source = "user.id")
     AddFeedbackResponse feedbackToAddFeedbackResponse(Feedback feedback);
 
+    @Mapping(target = "email",source = "user.email")
+    @Mapping(target = "transactionDone",source = "reply.transactionDone")
     GetAllFeedbackResponse feedbackToGetAllFeedbackResponse(Feedback feedback);
 }

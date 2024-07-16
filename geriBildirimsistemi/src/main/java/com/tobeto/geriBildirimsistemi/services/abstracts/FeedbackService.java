@@ -1,5 +1,6 @@
 package com.tobeto.geriBildirimsistemi.services.abstracts;
 
+import com.tobeto.geriBildirimsistemi.entities.Feedback;
 import com.tobeto.geriBildirimsistemi.services.dtos.requests.feedback.AddFeedbackRequest;
 import com.tobeto.geriBildirimsistemi.services.dtos.responses.feedback.AddFeedbackResponse;
 import com.tobeto.geriBildirimsistemi.services.dtos.responses.feedback.GetAllFeedbackResponse;
@@ -11,4 +12,6 @@ public interface FeedbackService {
     AddFeedbackResponse create(AddFeedbackRequest request);
 
     List<GetAllFeedbackResponse> getAllFeedbackByDate();
+
+    Feedback getFeedbackById(int id);
 }

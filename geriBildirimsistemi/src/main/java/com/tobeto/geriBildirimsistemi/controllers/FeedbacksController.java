@@ -4,6 +4,7 @@ import com.tobeto.geriBildirimsistemi.services.abstracts.FeedbackService;
 import com.tobeto.geriBildirimsistemi.services.dtos.requests.feedback.AddFeedbackRequest;
 import com.tobeto.geriBildirimsistemi.services.dtos.responses.feedback.AddFeedbackResponse;
 import com.tobeto.geriBildirimsistemi.services.dtos.responses.feedback.GetAllFeedbackResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class FeedbacksController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public AddFeedbackResponse create(AddFeedbackRequest request){
+    public AddFeedbackResponse create(@RequestBody @Valid AddFeedbackRequest request){
         return feedbackService.create(request);
     }
 

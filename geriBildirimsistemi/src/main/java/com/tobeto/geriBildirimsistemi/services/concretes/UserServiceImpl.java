@@ -29,16 +29,17 @@ public class UserServiceImpl implements UserService {
         if(existingUser.isPresent()){
             throw new RuntimeException("Bu hesapla zaten giriş yapılmış.");
         }
-
+        System.out.println(request);
         User newUser = UserMapper.INSTANCE.registerUserRequestToUser(request);
-        return UserMapper.INSTANCE.userToRegisterUserResponse(userRepository.save(newUser));
+        User saved = userRepository.save(newUser);
+        return UserMapper.INSTANCE.userToRegisterUserResponse(saved);
     }
 
     @Override
     public LoginUserResponse login(LoginUserRequest request) {
         Optional<User> user = userRepository.findByEmail(request.getEmail());
 
-        if(user.isPresent() && user.get().getPassword().equals(request.getPassword())) {
+        if(user.isPresent() && user.get().getPassword().equals(request.getPassword()) && user.get().getRole().equals(request.getRole())) {
             System.out.println("Sisteme giriş yapıldı");
             // Giriş başarılı ise, LoginUserResponse döndür.
             return UserMapper.INSTANCE.userToLoginUserResponse(user.get());

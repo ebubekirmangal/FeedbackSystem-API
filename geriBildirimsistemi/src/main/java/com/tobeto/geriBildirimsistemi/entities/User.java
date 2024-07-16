@@ -1,5 +1,6 @@
 package com.tobeto.geriBildirimsistemi.entities;
 
+import com.tobeto.geriBildirimsistemi.entities.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(unique = true)
     private String email;
 
     private String password;

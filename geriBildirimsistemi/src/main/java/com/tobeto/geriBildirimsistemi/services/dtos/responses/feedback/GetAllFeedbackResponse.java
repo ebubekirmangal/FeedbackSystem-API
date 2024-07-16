@@ -13,9 +13,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class GetAllFeedbackResponse {
 
+    private int id;
+
+    private String email;
+
     private String title;
 
     private String content;
 
     private LocalDateTime sentTime;
+
+    private boolean transactionDone;
 }

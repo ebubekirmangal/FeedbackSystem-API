@@ -1,4 +1,4 @@
-package com.tobeto.geriBildirimsistemi.services.dtos.responses.feedback;
+package com.tobeto.geriBildirimsistemi.services.dtos.responses.reply;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,13 +11,11 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddFeedbackResponse {
+public class AddReplyResponse {
 
     private int id;
 
     private int userId;
 
     private LocalDateTime sentTime;
-
-    private boolean isTransactionDone;
 }
